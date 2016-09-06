@@ -23,4 +23,9 @@ class BikeServiceImpl implements BikeService {
     public Bike findOne(Long id) {
         return bikeRepository.findOne(id);
     }
+
+    @Override
+    public Bike save(Bike bike) {
+        return bikeRepository.save(bike);
+    }
 }

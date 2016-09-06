@@ -1,11 +1,10 @@
 package com.example.controller;
 
+import com.example.domain.Bike;
 import com.example.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -28,6 +27,20 @@ public class BikeController {
         model.put("bike", bikeService.findOne(bikeId));
 
         return "bike/view";
+    }
+
+    @GetMapping(value="/create")
+    public String create(Map<String, Object> model) {
+        model.put("bike", new Bike());
+        return "bike/create";
+    }
+
+    @PostMapping(value="/create")
+    public String save(@ModelAttribute Bike bike, Map<String, Object> model) {
+        bikeService.save(bike);
+        model.put("id", bike.getId());
+
+        return "bike/success";
     }
 
 }

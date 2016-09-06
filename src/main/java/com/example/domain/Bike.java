@@ -16,7 +16,7 @@ public class Bike implements Serializable {
 
     private String name;
 
-    protected Bike() {
+    public Bike() {
     }
 
     public Bike(String name) {
@@ -27,7 +27,15 @@ public class Bike implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

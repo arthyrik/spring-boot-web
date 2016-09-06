@@ -10,4 +10,6 @@ public interface BikeService {
     List<Bike> findAll();
 
     Bike findOne(Long id);
+
+    Bike save(Bike bike);
 }
